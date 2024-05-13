@@ -1,0 +1,29 @@
+{
+  "name": "google-ads-api-poc",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "dev": "tsnd  --inspect --respawn src/index.ts",
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "lint": "gts lint",
+    "clean": "gts clean",
+    "compile": "tsc",
+    "fix": "gts fix",
+    "prepare": "npm run compile",
+    "pretest": "npm run compile",
+    "posttest": "npm run lint"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "@types/node": "20.11.5",
+    "gts": "^5.3.0",
+    "ts-node-dev": "^2.0.0",
+    "typescript": "~5.4.3"
+  },
+  "dependencies": {
+    "dotenv": "^16.4.5"
+  }
+}
