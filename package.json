@@ -4,7 +4,7 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "dev": "tsnd  --inspect-brk --respawn src/index.ts",
+    "dev": "tsnd  --inspect --respawn src/index.ts",
     "test": "echo \"Error: no test specified\" && exit 1",
     "lint": "gts lint",
     "clean": "gts clean",
@@ -18,11 +18,10 @@
   "author": "",
   "license": "ISC",
   "devDependencies": {
-    "@types/dotenv": "^8.2.0",
-    "@types/node": "20.11.5",
+    "@types/node": "20.12.12",
     "gts": "^5.3.0",
     "ts-node-dev": "^2.0.0",
-    "typescript": "~5.4.3"
+    "typescript": "~5.4.5"
   },
   "dependencies": {
     "dotenv": "^16.4.5",
