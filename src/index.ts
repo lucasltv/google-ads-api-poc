@@ -6,8 +6,13 @@ dotenv.config();
 // https://developers.google.com/oauthplayground/
 
 const start = async () => {
-  const { CLIENT_ID, CLIENT_SECRET, DEVELOPER_TOKEN, REFRESH_TOKEN } =
-    process.env;
+  const {
+    CLIENT_ID,
+    CLIENT_SECRET,
+    DEVELOPER_TOKEN,
+    REFRESH_TOKEN,
+    GOOGLE_ADS_ACCOUNT,
+  } = process.env;
 
   const client = new GoogleAdsApi({
     client_id: CLIENT_ID,
@@ -15,12 +20,11 @@ const start = async () => {
     developer_token: DEVELOPER_TOKEN,
   });
 
-  const customers = await client.listAccessibleCustomers(REFRESH_TOKEN);
-  console.log(`start LOG:  customers:`, customers);
+  // const customers = await client.listAccessibleCustomers(REFRESH_TOKEN);
   // console.log(`start LOG:  customers:`, customers);
 
   const customer = client.Customer({
-    customer_id: '5566962688', // Gerente Account (MCC)
+    customer_id: GOOGLE_ADS_ACCOUNT, // Gerente Account (MCC)
     refresh_token: REFRESH_TOKEN,
   });
 
@@ -55,7 +59,11 @@ const start = async () => {
     },
     limit: 20,
   });
+  debugger;
   console.log(`start LOG:  campaigns:`, campaigns);
 };
 
-start().catch(console.error);
+start().catch(e => {
+  debugger;
+  console.error(e);
+});
